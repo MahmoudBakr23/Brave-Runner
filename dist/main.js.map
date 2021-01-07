@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://Brave-Runner/./src/index.js"],"names":["console","log"],"mappings":";;;;;;;AAAAA,OAAO,CAACC,GAAR,CAAY,YAAZ,E","file":"main.js","sourcesContent":["console.log('Here we go')"],"sourceRoot":""}
