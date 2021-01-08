@@ -1,5 +1,5 @@
 {
-  "name": "Brave-Runner",
+  "name": "brave-runner",
   "version": "1.0.0",
   "description": "This is an HTML5 game built with modern javascript and phaser 3",
   "main": "index.js",
@@ -21,9 +21,7 @@
   },
   "homepage": "https://github.com/MahmoudBakr23/Brave-Runner#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.2",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.12.10",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
