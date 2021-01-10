@@ -1,5 +1,5 @@
 import 'phaser';
-import TitleScene from './TitleScene';
+import InputScene from './InputScene';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor () {
@@ -96,7 +96,7 @@ export default class PreloaderScene extends Phaser.Scene {
   ready () {
     this.readyCount++;
     if (this.readyCount === 2) {
-      this.scene.start('Title', TitleScene);
+      this.scene.start('Input', InputScene);
     }
   }
 

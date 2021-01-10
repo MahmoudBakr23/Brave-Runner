@@ -78,19 +78,6 @@ export default class GameScene extends Phaser.Scene {
             options.score += 10;
             options.scoreText.setText('Score: ' + options.score)
             coin.disableBody(true, true);
-
-            // this.tweens.add({
-            //     targets: coin,
-            //     y: coin.y - 100,
-            //     alpha: 0,
-            //     duration: 400,
-            //     ease: "Cubic.easeOut",
-            //     callbackScope: this,
-            //     onComplete: function(){
-            //         this.coinGroup.killAndHide(coin);
-            //         this.coinGroup.remove(coin);
-            //     }
-            // });
         }
 
         this.input.on('pointerdown', this.jump, this)
@@ -158,7 +145,7 @@ export default class GameScene extends Phaser.Scene {
 
     update() {
         if(this.player.y > this.game.config.height){
-            this.scene.start("Game");
+            this.scene.start("GameOver");
             options.score = 0;
         }
         this.player.x = options.playerStartPosition;
