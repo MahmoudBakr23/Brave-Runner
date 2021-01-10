@@ -5,7 +5,7 @@ This is an HTML5 game built with modern javascript and phaser 3
 
 ## Live Link
 
-- Live: [DEMO](https://rawcdn.githack.com/MahmoudBakr23/Brave-Runner/100540dddb73e3b45770cdc3f0a5ef847f959865/dist/index.html)
+- Live: [DEMO](https://rawcdn.githack.com/MahmoudBakr23/Brave-Runner/b772b2d72dac5b23e34b1b810d8dbdf8b2655b25/dist/index.html)
 
 ## Built with
 
