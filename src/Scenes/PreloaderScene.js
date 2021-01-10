@@ -1,12 +1,12 @@
-import 'phaser';
+import Phaser from 'phaser';
 import InputScene from './InputScene';
 
 export default class PreloaderScene extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('Preloader');
   }
 
-  preload () {
+  preload() {
     this.title = this.add.text(this.game.config.width * 0.5, 128, 'Brave Runner', {
       fontFamily: 'monospace',
       fontSize: 48,
@@ -15,65 +15,66 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
-    var progressBar = this.add.graphics();
-    var progressBox = this.add.graphics();
+    const progressBar = this.add.graphics();
+    const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
     progressBox.fillRect(240, 270, 320, 50);
 
-    var width = this.cameras.main.width;
-    var height = this.cameras.main.height;
-    var loadingText = this.make.text({
-    x: width / 2,
-    y: height / 2 - 50,
-    text: 'Loading...',
-    style: {
-    font: '20px monospace',
-    fill: '#ffffff'
-    }
+    const { width } = this.cameras.main;
+    const { height } = this.cameras.main;
+    const loadingText = this.make.text({
+      x: width / 2,
+      y: height / 2 - 50,
+      text: 'Loading...',
+      style: {
+        fontFamily: 'monospace',
+        fontSize: '20',
+        fill: '#ffffff',
+      },
     });
     loadingText.setOrigin(0.5, 0.5);
 
-    var percentText = this.make.text({
-    x: width / 2,
-    y: height / 2 - 5,
-    text: '0%',
-    style: {
-    font: '18px monospace',
-    fill: '#ffffff'
-    }
+    const percentText = this.make.text({
+      x: width / 2,
+      y: height / 2 - 5,
+      text: '0%',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff',
+      },
     });
     percentText.setOrigin(0.5, 0.5);
 
-    var assetText = this.make.text({
-    x: width / 2,
-    y: height / 2 + 50,
-    text: '',
-    style: {
-    font: '18px monospace',
-    fill: '#ffffff'
-    }
+    const assetText = this.make.text({
+      x: width / 2,
+      y: height / 2 + 50,
+      text: '',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff',
+      },
     });
     assetText.setOrigin(0.5, 0.5);
 
-    this.load.on('progress', function (value) {
-    percentText.setText(parseInt(value * 100) + '%');
-    progressBar.clear();
-    progressBar.fillStyle(0xffffff, 1);
-    progressBar.fillRect(250, 280, 300 * value, 30);
+    this.load.on('progress', (value) => {
+      percentText.setText(`${parseInt(value * 100)}%`);
+      progressBar.clear();
+      progressBar.fillStyle(0xffffff, 1);
+      progressBar.fillRect(250, 280, 300 * value, 30);
     });
 
-    this.load.on('fileprogress', function (file) {
-    assetText.setText('Loading asset: ' + file.key);
+    this.load.on('fileprogress', (file) => {
+      assetText.setText(`Loading asset: ${file.key}`);
     });
 
-    this.load.on('complete', function () {
-    progressBar.destroy();
-    progressBox.destroy();
-    loadingText.destroy();
-    percentText.destroy();
-    assetText.destroy();
-    this.ready();
-    }.bind(this));
+    this.load.on('complete', () => {
+      progressBar.destroy();
+      progressBox.destroy();
+      loadingText.destroy();
+      percentText.destroy();
+      assetText.destroy();
+      this.ready();
+    });
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
@@ -82,28 +83,25 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('box', 'assets/ui/grey_box.png');
     this.load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
     this.load.image('sky', 'assets/sky.png');
-    this.load.image('platform', 'assets/platform.png')
+    this.load.image('platform', 'assets/platform.png');
     this.load.spritesheet('player', 'assets/dude.png', {
-        frameWidth: 24,
-        frameHeight: 48
+      frameWidth: 24,
+      frameHeight: 48,
     });
-    this.load.spritesheet("coin", "assets/coin.png", {
+    this.load.spritesheet('coin', 'assets/coin.png', {
       frameWidth: 20,
-      frameHeight: 20
-  });
+      frameHeight: 20,
+    });
   }
 
-  init () {
+  init() {
     this.readyCount = 0;
   }
-  
-  ready () {
+
+  ready() {
     this.readyCount++;
     if (this.readyCount === 2) {
       this.scene.start('Input', InputScene);
     }
   }
-
-  create () {
-  }
-};
+}

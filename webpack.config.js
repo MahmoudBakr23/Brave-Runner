@@ -18,8 +18,8 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|svg|xml)$/i,
-        use: "file-loader"
-      }
+        use: 'file-loader',
+      },
     ],
   },
   plugins: [
@@ -27,21 +27,21 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, './src/assets'),
-          to: path.resolve(__dirname, 'dist/assets')
+          to: path.resolve(__dirname, 'dist/assets'),
         },
         {
           from: path.resolve(__dirname, './src/index.html'),
-          to: path.resolve(__dirname, 'dist')
-        }
-      ]
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
     }),
     new webpack.DefinePlugin({
       'typeof CANVAS_RENDERER': JSON.stringify(true),
-      'typeof WEBGL_RENDERER': JSON.stringify(true)
-    })
+      'typeof WEBGL_RENDERER': JSON.stringify(true),
+    }),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     port: 5500,
-  }
+  },
 };
