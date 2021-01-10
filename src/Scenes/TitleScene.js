@@ -10,6 +10,14 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
+    this.title = this.add.text(this.game.config.width * 0.5, 128, 'Brave Runner', {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#ffffff',
+    });
+    this.title.setOrigin(0.5);
+
     this.gameButton = this.add.sprite(100, 200, 'blueButton1').setInteractive();
     this.centerButton(this.gameButton, 1);
 
