@@ -7,5 +7,5 @@ export default {
     physics: {
         default: 'arcade'
     },
-    backgroundColor: 0x444444,
+    backgroundColor: 0x0c88c7,
 };
