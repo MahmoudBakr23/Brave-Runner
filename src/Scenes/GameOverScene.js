@@ -1,4 +1,5 @@
 import 'phaser'
+import {options} from '../Config/gameOptions';
 
 export default class GameOverScene extends Phaser.Scene {
     constructor() {
@@ -14,12 +15,21 @@ export default class GameOverScene extends Phaser.Scene {
         })
         this.title.setOrigin(0.5)
 
+        this.title = this.add.text(this.game.config.width * 0.5, 200, 'Your Score: ' + options.score, {
+          fontFamily: 'monospace',
+          fontSize: 48,
+          fontStyle: 'bold',
+          color: '#ffffff'
+      })
+      this.title.setOrigin(0.5)
+
         this.retryButton = this.add.sprite(400, 300, 'blueButton1').setInteractive();
       
         this.retryText = this.add.text(0, 0, 'Retry', { fontSize: '32px', fill: '#fff' });
         this.centerButtonText(this.retryText, this.retryButton);
     
         this.retryButton.on('pointerdown', () => {
+          options.score = 0;
           this.scene.start('Game');
         });
 

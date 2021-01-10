@@ -7,7 +7,13 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload () {
-    this.add.image(400, 200, 'logo');
+    this.title = this.add.text(this.game.config.width * 0.5, 128, 'Brave Runner', {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#ffffff',
+    });
+    this.title.setOrigin(0.5);
 
     var progressBar = this.add.graphics();
     var progressBox = this.add.graphics();
@@ -73,10 +79,8 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.load.image('blueButton1', 'assets/ui/blue_button02.png');
     this.load.image('blueButton2', 'assets/ui/blue_button03.png');
-    this.load.image('phaserLogo', 'assets/logo.png');
     this.load.image('box', 'assets/ui/grey_box.png');
     this.load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
-    this.load.audio('bgMusic', ['assets/TownTheme.mp3']);
     this.load.image('sky', 'assets/sky.png');
     this.load.image('platform', 'assets/platform.png')
     this.load.spritesheet('player', 'assets/dude.png', {
