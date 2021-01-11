@@ -1,5 +1,5 @@
 const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
-const apiKey = 'Zl4d7IVkemOTTVg2fUdz';
+const apiKey = '37Fz5s5O6RE1untiAU8M';
 
 const sendScore = async (name, score) => {
   const response = await fetch(`${url}/games/${apiKey}/scores`, {

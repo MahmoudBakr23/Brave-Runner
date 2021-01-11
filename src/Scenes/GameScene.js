@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { options } from '../Config/gameOptions';
+import { getScores } from '../scoreAPI'
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -125,6 +126,18 @@ export default class GameScene extends Phaser.Scene {
           coin.anims.play('rotate');
           this.coinGroup.add(coin);
         }
+      }
+    }
+  }
+
+  async topScore() {
+    const resultObject = await getScores();
+
+    if (Array.isArray(resultObject.result)) {
+      this.scores = resultObject.result.sort((a, b) => ((a.score > b.score) ? -1 : 1));
+
+      for (let i = 0; i < 1; i += 1) {
+        localStorage.setItem('highScore', this.scores[0].score);
       }
     }
   }

@@ -1,7 +1,7 @@
 const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
-const apiKey = 'Zl4d7IVkemOTTVg2fUdz';
+const apiKey = '37Fz5s5O6RE1untiAU8M';
 
-const postScore = async (name, score) => {
+export const postScore = async function (name, score) {
   const response = await fetch(`${url}/games/${apiKey}/scores`, {
     method: 'POST',
     mode: 'cors',
@@ -17,5 +17,3 @@ const postScore = async (name, score) => {
   }
   throw new Error('Error!');
 };
-
-module.exports = postScore;
