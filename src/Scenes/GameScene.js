@@ -159,7 +159,7 @@ export default class GameScene extends Phaser.Scene {
 
     let minDistance = this.game.config.width;
     let rightmostPlatformHeight = 0;
-    this.platformGroup.getChildren().forEach( (platform) => {
+    this.platformGroup.getChildren().forEach((platform) => {
       const platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
       if (platformDistance < minDistance) {
         minDistance = platformDistance;
@@ -171,7 +171,7 @@ export default class GameScene extends Phaser.Scene {
       }
     }, this);
 
-    this.coinGroup.getChildren().forEach( (coin) => {
+    this.coinGroup.getChildren().forEach((coin) => {
       if (coin.x < -coin.displayWidth / 2) {
         this.coinGroup.killAndHide(coin);
         this.coinGroup.remove(coin);
