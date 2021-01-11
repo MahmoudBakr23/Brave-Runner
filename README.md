@@ -3,6 +3,18 @@ This is an HTML5 game built with modern javascript and phaser 3
 
 ![screenshot](./Screenshot.png)
 
+## How to Play
+
+- First: the game will load
+- then you will be asked to insert your preferred name
+- and once you submit you're ready to play the game
+
+### Instructions:
+
+1- The player jumps by clicking on the ```left click in the mouse```
+2- The player can double jumps
+3- collect as many coins as you want
+
 ## Live Link
 
 - Live: [DEMO](https://rawcdn.githack.com/MahmoudBakr23/Brave-Runner/b772b2d72dac5b23e34b1b810d8dbdf8b2655b25/dist/index.html)
