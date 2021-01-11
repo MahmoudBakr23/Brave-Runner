@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { options } from '../Config/gameOptions';
-import { getScores } from '../scoreAPI'
+import { getScores } from '../scoreAPI';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
