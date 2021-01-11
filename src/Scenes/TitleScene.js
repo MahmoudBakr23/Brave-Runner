@@ -6,9 +6,6 @@ export default class TitleScene extends Phaser.Scene {
     super('Title');
   }
 
-  preload() {
-  }
-
   create() {
     this.title = this.add.text(this.game.config.width * 0.5, 128, 'Brave Runner', {
       fontFamily: 'monospace',

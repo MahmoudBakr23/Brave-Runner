@@ -7,9 +7,6 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
-  preload() {
-  }
-
   create() {
     this.add.image(400, 300, 'sky');
 
@@ -67,7 +64,7 @@ export default class GameScene extends Phaser.Scene {
       repeat: -1,
     });
 
-    this.physics.add.collider(this.player, this.platformGroup, function () {
+    this.physics.add.collider(this.player, this.platformGroup, () => {
       if (!this.player.anims.isPlaying) {
         this.player.anims.play('run');
       }
@@ -162,7 +159,7 @@ export default class GameScene extends Phaser.Scene {
 
     let minDistance = this.game.config.width;
     let rightmostPlatformHeight = 0;
-    this.platformGroup.getChildren().forEach(function (platform) {
+    this.platformGroup.getChildren().forEach( (platform) => {
       const platformDistance = this.game.config.width - platform.x - platform.displayWidth / 2;
       if (platformDistance < minDistance) {
         minDistance = platformDistance;
@@ -174,7 +171,7 @@ export default class GameScene extends Phaser.Scene {
       }
     }, this);
 
-    this.coinGroup.getChildren().forEach(function (coin) {
+    this.coinGroup.getChildren().forEach( (coin) => {
       if (coin.x < -coin.displayWidth / 2) {
         this.coinGroup.killAndHide(coin);
         this.coinGroup.remove(coin);
